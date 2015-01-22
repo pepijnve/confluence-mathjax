@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cityinthesky.plugins</groupId>
     <artifactId>mathjax</artifactId>
-    <version>1.1</version>
+    <version>1.2-SNAPSHOT</version>
 
     <organization>
         <name>David A.W. Barton</name>
@@ -15,14 +15,18 @@
     </organization>
 
     <name>mathjax</name>
-    <description>This plugin is a wrapper for the MathJax JavaScript library. MathJax is an open source JavaScript display engine for mathematics that works in all modern browsers.</description>
+    <description>
+        This plugin is a wrapper for the MathJax JavaScript library.
+        MathJax is an open source JavaScript display engine for mathematics that works in all modern browsers.
+        Icon made by Freepik from www.flaticon.com is licensed under CC BY 3.0.
+    </description>
     <packaging>atlassian-plugin</packaging>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.6</version>
+            <version>4.10</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -31,23 +35,24 @@
             <version>${confluence.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- WIRED TEST RUNNER DEPENDENCIES -->
         <dependency>
-            <groupId>com.atlassian.confluence.plugin</groupId>
-            <artifactId>func-test</artifactId>
-            <version>2.3</version>
+            <groupId>com.atlassian.plugins</groupId>
+            <artifactId>atlassian-plugins-osgi-testrunner</artifactId>
+            <version>${plugin.testrunner.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>net.sourceforge.jwebunit</groupId>
-            <artifactId>jwebunit-htmlunit-plugin</artifactId>
-            <version>2.2</version>
-            <scope>test</scope>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>net.sourceforge.nekohtml</groupId>
-            <artifactId>nekohtml</artifactId>
-            <version>1.9.12</version>
-            <scope>test</scope>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.2-atlassian-1</version>
         </dependency>
     </dependencies>
 
@@ -56,7 +61,7 @@
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>maven-confluence-plugin</artifactId>
-                <version>3.7.2</version>
+                <version>${amps.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <productVersion>${confluence.version}</productVersion>
@@ -74,8 +79,10 @@
     </build>
 
     <properties>
-        <confluence.version>4.0</confluence.version>
-        <confluence.data.version>3.2</confluence.data.version>
+        <confluence.version>5.6.6</confluence.version>
+        <confluence.data.version>5.6.6</confluence.data.version>
+        <amps.version>5.0.13</amps.version>
+        <plugin.testrunner.version>1.2.3</plugin.testrunner.version>
     </properties>
 
 </project>
